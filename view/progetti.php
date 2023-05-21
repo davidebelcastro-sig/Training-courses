@@ -1,6 +1,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                <link rel="stylesheet" href="./vendor/datatables/jquery.dataTables.min.css">
+                <script src="./vendor/datatables/jquery.dataTables.min.js"></script>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Progetti</h1>
                
@@ -97,60 +98,38 @@
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_progetto.php?id_progetto="+id);
   });
-  </script>
-  
-  <script>
+
  $(" .dettaglio-progetti1").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_allievi_iscritti_progetto.php?id_progetto="+id);
   });
-  </script>
 
-
-<script>
  $(" .dettaglio-progetti2").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_enti_progetto.php?id_progetto="+id);
   });
-  </script>
 
-
-<script>
  $(" .dettaglio-progetti3").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_corsi_progetto.php?id_progetto="+id);
   });
-  </script>
 
-  
-<script>
  $(" .dettaglio-progetti4").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_docenti_progetto.php?id_progetto="+id);
   });
-  </script>
+
+$(document).ready(function() {
+  $('.table').DataTable();
+});
+</script>

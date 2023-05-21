@@ -11,19 +11,12 @@ document.getElementById('tipooperazione').value=valore;
 		require_once('../class/allievo.php');
 		$allievo= new allievo();								  
         $allievo->getDettaglioAllievo($mysqli,$_GET["id_allievo"]);
-		
-		if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
 		while ($row=$allievo->allievoDett->fetch_assoc()) {
 		?>	   
 		
 			
 		  <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Moduli didattici per l'allievo <?php echo $row["id_anagrafica"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Moduli didattici per allievo</h1>
                                   <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

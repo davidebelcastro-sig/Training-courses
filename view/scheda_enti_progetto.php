@@ -10,19 +10,12 @@ document.getElementById('tipooperazione').value=valore;
 		require_once('../class/progetto.php');
 		$progetto= new Progetto();								  
         $progetto->getDettaglioProgetto($mysqli,$_GET["id_progetto"]);
-		
-		if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
 		while ($row=$progetto->progettoDett->fetch_assoc()) {
 		?>	   
 		
 		
 		 <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Enti finanzianti per Progetto <?php echo $row["id_progetto"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Enti finanzianti per Progetto</h1>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

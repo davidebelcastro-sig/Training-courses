@@ -7,19 +7,11 @@
 		require_once('../configurazione/database.php');
 		$corso= new corso();								  
         $corso->getDettaglioCorso($mysqli,$_GET["id_corso"]);
-		
-				if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
-		
 		while ($row=$corso->corsoDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
 		  
-                    <h1 class="h3 mb-2 text-gray-800">Corso ID <?php echo $row["id_corso"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Corso</h1>
                    		
 							<form class="user" action="business/insertCorso.php" method="post"  onSubmit="return validate(this);">
                                 <div class="row">

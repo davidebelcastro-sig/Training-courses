@@ -1,4 +1,6 @@
 	 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	 <link rel="stylesheet" href="./vendor/datatables/jquery.dataTables.min.css">
+                <script src="./vendor/datatables/jquery.dataTables.min.js"></script>
                                     <thead>
                                         <tr>
 																												
@@ -52,29 +54,28 @@ $(" .dettaglio-corsi").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_corso.php?id_corso="+id);
   });
   $(" .dettaglio-corsi1").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_corsi_allievi.php?id_corso="+id);
   });
    $(" .dettaglio-corsi2").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
+
  $("#content").load("view/scheda_corsi_moduli.php?id_corso="+id);
   });
+
+  $(document).ready(function() {
+  $('.table').DataTable();
+});
+
+
+
 	</script>
 	
 	

@@ -29,11 +29,6 @@
             <div class="sidebar-heading">
                 Amministrazione
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-			
-		
-			
 			<li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProgetti"
                     aria-expanded="true" aria-controls="collapseProgetti">
@@ -274,16 +269,6 @@
 
 
 	 <hr class="sidebar-divider d-none d-md-block">
-            <!-- Nav Item - Charts -->
- 
-
-            <!-- Nav Item - Tables 
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
--->
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

@@ -9,19 +9,10 @@
 		require_once('../class/anagrafica.php');
 		$allievo= new allievo();								  
         $allievo->getDettaglioAllievo($mysqli,$_GET["id_allievo"]);
-		
-		
-				if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
-		
 		while ($row=$allievo->allievoDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Allievo ID <?php echo $row["id_anagrafica"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Allievo</h1>
 					<form class="user" action="business/insertAllievo.php" method="post"  onSubmit="return validate(this);">       
 							<div class="row">
 									<div class="col-sm-12">	
@@ -47,16 +38,6 @@
 </select>
 	</div>	
 		</div>		
-      	   <div class="row">
-									<div class="col-sm-12">	
-                                        <label style="width:20%;">Azienda</label><input type="text" class="" id="AZIENDA" name="AZIENDA" style="width:80%;"  value="<?php echo $row['id_azienda'] ?>"> </input>                                  
-                                    </div>
-								</div>
-								<div class="row">
-									<div class="col-sm-12">	
-                                        <label style="width:20%;">Ccnl</label><input type="text" class="" id="CCNL" name="CCNL" style="width:80%;" value="<?php echo $row['id_ccnl'] ?>"> </input>                                
-                                    </div>
-								</div>
 		  <hr>			
 						<div class="row">
                      <div class="col-sm-6" style="text-align:right;">

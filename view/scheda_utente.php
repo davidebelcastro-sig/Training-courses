@@ -15,7 +15,7 @@ ini_session_start();
 		while ($row=$utente->utenteDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">utente ID <?php echo $_SESSION['user_id'] ?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Utente</h1>
 					<form class="user" action="business/insertUtente.php" method="post"  onSubmit="return validate(this);">                   		
 
 							<div class="row">

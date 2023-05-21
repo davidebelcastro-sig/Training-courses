@@ -1,5 +1,6 @@
                 <div class="container-fluid">
-
+                <link rel="stylesheet" href="./vendor/datatables/jquery.dataTables.min.css">
+                <script src="./vendor/datatables/jquery.dataTables.min.js"></script>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Anagrafiche</h1>
                   
@@ -58,4 +59,10 @@
   //alert(value);
  $("#content").load("view/scheda_anagrafica.php?id_anagrafica="+id);
   });
+
+
+  $(document).ready(function() {
+  $('.table').DataTable();
+});
+
   </script> 

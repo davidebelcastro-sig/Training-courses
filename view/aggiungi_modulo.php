@@ -69,7 +69,7 @@
 		var scegli = '<option value="0">Scegli...</option>';
 		var attendere = '<option value="0">Attendere...</option>';
 		
-		$("select#corsoid").html(scegli);
+		$("select#corsoid").html(attendere);
 		$("select#corsoid").attr("disabled", "disabled");
 	
 		

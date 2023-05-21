@@ -113,7 +113,7 @@ $mysqli->select_db("ltw");
 
 function insertAnagrafica($mysqli,$cognome,$nome,$provincia_nascita,$data_nascita,$cittadinanza,$comune_nascita,$cap,
 							$residenza_indirizzo,$residenza_provincia,$residenza_comune,$cf,$titolo_studio,$web,$mail,
-							$allegatocv,$allegatodoc,$user_id)
+							$user_id)
 {
 
 try
@@ -122,14 +122,13 @@ try
 
 
 $stmt = $mysqli->prepare("INSERT INTO tb_anagrafica(cognome,nome,provincia_nascita,data_nascita,cittadinanza_id,comune_nascita,cap_residenza,
-indirizzo_residenza,provincia_residenza,comune_residenza,cf,titolo_studio,web,email,allegatocv,allegatodoc,id_user_modifica	) VALUES ( ?,?,?,?, ?,?,?,?, ?,?,?,?, ?,?,?,?,?)");
+indirizzo_residenza,provincia_residenza,comune_residenza,cf,titolo_studio,web,email,id_user_modifica	) VALUES ( ?,?,?,?, ?,?,?,?, ?,?,?,?, ?,?,?)");
 if ($stmt === false)
 	die('prepare() failed: ' . htmlspecialchars($mysqli->error));										
-$rc = $stmt->bind_param("ssssisssssssssssi",$cognome,$nome,$provincia_nascita,$data_nascita,$cittadinanza,$comune_nascita,$cap,
+$rc = $stmt->bind_param("ssssisssssssssi",$cognome,$nome,$provincia_nascita,$data_nascita,$cittadinanza,$comune_nascita,$cap,
 							$residenza_indirizzo,$residenza_provincia,$residenza_comune,$cf,$titolo_studio,$web,$mail,
-							$allegatocv,$allegatodoc,$user_id);
+							$user_id);
 
-//$rc = $stmt->bind_param("isssdsssssss",$entefinanziante,$tipo,$codprog,$cup,$cc,$nomeprogetto,$resp,$rend,$iniziogenerale,$fineogenerale,$duratamesi,$avviso);
 if ($rc === false)
 	die('bind_param() failed: ' . htmlspecialchars($stmt->error));
 $rc = $stmt->execute();
@@ -148,19 +147,19 @@ catch(Exception $e) {
 
 function updateAnagrafica($mysqli,$idanag,$cognome,$nome,$provincia_nascita,$data_nascita,$cittadinanza,$comune_nascita,$cap,
 							$residenza_indirizzo,$residenza_provincia,$residenza_comune,$cf,$titolo_studio,$web,$mail,
-							$allegatocv,$allegatodoc,$user_id)
+							$user_id)
 {
 
 try
 {
 $stmt = $mysqli->prepare("UPDATE tb_anagrafica SET cognome=?,nome=?,provincia_nascita=?,data_nascita=?,cittadinanza_id=?,comune_nascita=?,cap_residenza=?,
-indirizzo_residenza=?,provincia_residenza=?,comune_residenza=?,cf=?,titolo_studio=?,web=?,email=?,allegatocv=?,allegatodoc=?,id_user_modifica=?	where id_anagrafica=?"); 
+indirizzo_residenza=?,provincia_residenza=?,comune_residenza=?,cf=?,titolo_studio=?,web=?,email=?,id_user_modifica=?	where id_anagrafica=?"); 
 
 if ($stmt === false)
 	die('prepare() failed: ' . htmlspecialchars($mysqli->error));										
-$rc = $stmt->bind_param("ssssisssssssssssii",$cognome,$nome,$provincia_nascita,$data_nascita,$cittadinanza,$comune_nascita,$cap,
+$rc = $stmt->bind_param("ssssisssssssssii",$cognome,$nome,$provincia_nascita,$data_nascita,$cittadinanza,$comune_nascita,$cap,
 							$residenza_indirizzo,$residenza_provincia,$residenza_comune,$cf,$titolo_studio,$web,$mail,
-							$allegatocv,$allegatodoc,$user_id,$idanag);
+							$user_id,$idanag);
 if ($rc === false)
 	die('bind_param() failed: ' . htmlspecialchars($stmt->error));
 $rc = $stmt->execute();

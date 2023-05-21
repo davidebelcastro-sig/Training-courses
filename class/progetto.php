@@ -57,9 +57,8 @@ function getProgettiEnte($mysqli,$ente)
 {
 $mysqli->select_db("ltw");
 
-   if ($stmt = $mysqli->prepare("select distinct  tb_progetto.* FROM tb_progetto,`tb_progetto-ente`
-   where `tb_progetto-ente`.id_progetto = tb_progetto.id_progetto and 
-   `tb_progetto-ente`.id_ente = ?
+   if ($stmt = $mysqli->prepare("select distinct  tb_progetto.* FROM tb_progetto
+   where tb_progetto.id_entefinanziante = ?
     order by `dtfine` desc")){ 
       $stmt->bind_param("i",$ente);
 	  $stmt->execute(); //esegue la query appena creata.
@@ -97,18 +96,10 @@ $mysqli->select_db("ltw");
       $this->progettoDett= $result;
    }
 } 
-/*function insertProgetto($mysqli,$entefinanziante,$tipo,$codprog,$cup,$cc,$nomeprogetto,
-						$resp,$rend,$iniziogenerale,$fineogenerale,$duratamesi,$avviso,$dataapprovazione,
-						$avvioazioni,$fineazioni,$datarendicontazione,
-						$allieviprevisti,$allieviiscritti,$allievifinali,$orepreviste,$user_id)
-{
-	*/
+
 function insertProgetto($mysqli,$entefinanziante,$nomeprogetto,$iniziogenerale,$fineogenerale,$allieviprevisti,$orepreviste,$user_id)
 {
-/*	
-IDProg
 
-*/
 try
 {
 
@@ -118,17 +109,12 @@ $stmt = $mysqli->prepare("INSERT INTO tb_progetto(id_entefinanziante,`nomeproget
  if ($stmt === false)
 
 	die('prepare() failed: ' . htmlspecialchars($mysqli->error));										
-/*$rc = $stmt->bind_param("isssdsssssdsssssiiidi",$entefinanziante,$tipo,$codprog,$cup,$cc,$nomeprogetto,
-						$resp,$rend,$iniziogenerale,$fineogenerale,$duratamesi,$avviso,$dataapprovazione,
-						$avvioazioni,$fineazioni,$datarendicontazione,
-						$allieviprevisti,$allieviiscritti,$allievifinali,$orepreviste,$user_id);
-						*/
+
 
 $rc = $stmt->bind_param("isssidi",$entefinanziante,$nomeprogetto,
 						$iniziogenerale,$fineogenerale,
 						$allieviprevisti,$orepreviste,$user_id);
 
-//$rc = $stmt->bind_param("isssdsssssss",$entefinanziante,$tipo,$codprog,$cup,$cc,$nomeprogetto,$resp,$rend,$iniziogenerale,$fineogenerale,$duratamesi,$avviso);
 if ($rc === false)
 	die('bind_param() failed: ' . htmlspecialchars($stmt->error));
 $rc = $stmt->execute();
@@ -175,10 +161,7 @@ catch(Exception $e) {
 
 function deleteProgetto($mysqli,$idprog)
 {
-/*	
-IDProg
 
-*/
 try
 {
 $stmt = $mysqli->prepare("DELETE from tb_progetto  where id_progetto=?");
@@ -199,14 +182,14 @@ catch(Exception $e) {
 	echo "error";	
 }
 }
-//non ho capito che fa
+
 function getProgettiDashboard($mysqli)
 {
 	try
 {
 $mysqli->select_db("ltw");
 
-$stmt = $mysqli->prepare("select distinct  * FROM `tb_progetto` inner join tb_entefinanziante on tb_progetto.id_entefinanziante=tb_entefinanziante.id_entefinanziante where tb_entefinanziante.dashboard=0 order by `tb_progetto`.`dtfine` desc");
+$stmt = $mysqli->prepare("select distinct  * FROM `tb_progetto` inner join tb_entefinanziante on tb_progetto.id_entefinanziante=tb_entefinanziante.id_entefinanziante  order by `tb_progetto`.`dtfine` desc");
 if ($stmt === false)
 	die('prepare() failed: ' . htmlspecialchars($mysqli->error));				     
 $stmt->execute(); //esegue la query appena creata.

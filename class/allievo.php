@@ -55,7 +55,7 @@ $mysqli->select_db("ltw");
    `tb_allievo-modulo`.id_allievo = tb_anagrafica.id_anagrafica
    and 
    `tb_allievo-modulo`.id_modulo = tb_modulo.id_modulo and tb_modulo.id_corso = tb_corso.id_corso and tb_corso.id_progetto=tb_progetto.id_progetto and tb_progetto.id_progetto=?")){ 
-    $stmt->bind_param("i",$prog);
+      $stmt->bind_param("i",$prog);
       $stmt->execute(); // esegue la query appena creata.
       $result = $stmt->get_result();
       $num_of_rows = $result->num_rows;
@@ -82,7 +82,7 @@ $mysqli->select_db("ltw");
    }
 } 
 
-/* da fare */
+
 function getDettaglioAllievo($mysqli,$idente)
 {
 $mysqli->select_db("ltw");
@@ -98,19 +98,19 @@ $mysqli->select_db("ltw");
 }
 	
 
-function insertAllievo($mysqli,$idanagr,$idazienda,$id_ccnl,$note,$user_id)
+function insertAllievo($mysqli,$idanagr,$note,$user_id)
 {
 
 try
 {
 	
-		$stmt = $mysqli->prepare("INSERT INTO `tb_allievo` (`id_anagrafica`,`id_azienda`, `id_ccnl`, `note`,`id_user_modifica`) VALUES (?,?,?,?,?)"); 							
+		$stmt = $mysqli->prepare("INSERT INTO `tb_allievo` (`id_anagrafica`, `note`,`id_user_modifica`) VALUES (?,?,?)"); 							
 
 
 		 if ($stmt === false)
 			die('prepare() failed: ' . htmlspecialchars($mysqli->error));	
 
-		$rc = $stmt->bind_param("iiisi",$idanagr,$idazienda,$id_ccnl,$note,$user_id);
+		$rc = $stmt->bind_param("isi",$idanagr,$note,$user_id);
 
 
 		if ($rc === false)
@@ -130,14 +130,14 @@ catch(Exception $e) {
 }
 
 
-function updateAllievo($mysqli,$idazienda,$id_ccnl,$note,$user_id,$idallievo)
+function updateAllievo($mysqli,$note,$user_id,$idallievo)
 {
 try
 {
-$stmt = $mysqli->prepare("UPDATE tb_allievo set `id_azienda`=?, `id_ccnl`=?,`note`=?,`id_user_modifica`=?  where id_anagrafica=?");
+$stmt = $mysqli->prepare("UPDATE tb_allievo set `note`=?,`id_user_modifica`=?  where id_anagrafica=?");
  if ($stmt === false)
 	die('prepare() failed: ' . htmlspecialchars($mysqli->error));										
-$rc = $stmt->bind_param("iisii",$idazienda,$id_ccnl,$note,$user_id,$idallievo);
+$rc = $stmt->bind_param("sii",$note,$user_id,$idallievo);
 
 
 if ($rc === false)

@@ -15,14 +15,9 @@ $d2 = $today['mday'];
 $hour = $today['hours'];
 $min = $today['minutes'];
 $todaystring = $y2."-".$m2."-".$d2;
-//$hour = $hour + $hour_offset;
 $localstring = $todaystring." ".$TZONE;
-//print "today = $localstring<BR>";
-//$todaystamp = strtotime($todaystring);
 $todaystamp = strtotime($localstring);
-//$test = strftime("%Y-%m-%d %H:%M",$todaystamp);
-//print "todaystamp = $todaystamp<BR>";
-//print "test = $test<BR>";
+
 if(!isset($_GET['noinc']))
 {
  $timestamp = $todaystamp;
@@ -42,7 +37,6 @@ $daysinmonth = date("t",mktime(1,1,1,$m,1,$y));
 
 $nextstamp = strtotime("+1 month",$timestamp,);
 $prevstamp = strtotime("-1 month",$timestamp);
-//print "m = $m, y = $y<BR>";
 
 ?>
 
@@ -84,20 +78,16 @@ $d = 1;
 $i = 0;
 //start first row
 print "<tr align=left valign=top bgcolor=$cellbg>";
-//increment through the days before the start of the month
 while($i < $startcol)
 {
     print "<TD>&nbsp;</TD>";
     $i++;
 }
-//step through day 1 to day n
-//make the timstamp for day 1 of the month/year
+
+
 $daystring = $y."-".$m."-01 ".$TZONE;
 $daystamp = strtotime($daystring);
-//$test = strftime("%Y-%m-%d %H:%M",$daystamp);
-//print "daystamp = $daystamp<BR>";
-//print "test = $test<BR>";
-//$daystamp = mktime ($hour,0,0,$m,1,$y);
+
 require_once('../configurazione/database.php');
 require_once('../class/presenza.php');
 $presenza= new Presenza();
@@ -105,29 +95,14 @@ while($d <= $daysinmonth)
 {
     $string1 = strftime("%Y-%m-%d",$daystamp);
     $string2 = strftime("%Y-%m-%d",$timestamp);
-    $string3 = strftime("%Y-%m-%d",$todaystamp);
-   // print "day = $string1<BR>time = $string2<BR>today = $string3<BR><BR>";
-    
+    $string3 = strftime("%Y-%m-%d",$todaystamp);    
     if($i > 6)
     {
         //start new row
         print "</TR><tr align=left valign=top bgcolor=$cellbg>";
         $i = 0;
     }
-    //print day
-    /* THIS CHUNK DISPLAYS THE EVENTS ON EACH DAY FOR EACH DAY 
-         $conn2=mysql_pconnect($host,$user,$pwd);
-         mysql_select_db($db,$conn2);
-         $sql2="SELECT * FROM ".$events_table." WHERE datestamp = ".$daystamp;
-         $sql2=$sql2." ORDER BY stimestamp";
-         $result2=mysql_query($sql2,$conn2);
-		 
-		 */
-		 
-  
-  //$sql = "SELECT * FROM ".$events_table; //." WHERE datestamp =  ". $daystamp;
- 
- // $sql = "SELECT ".$events_table.".*,`nomeprogetto`,titolo FROM ".$events_table." inner join tb_progetto on id_progetto=id_progetto inner join tb_corso on id_corso=id_corso";
+    
   $sql= "SELECT ".$events_table.".*,`nomeprogetto`,tb_corso.titolo,tb_anagrafica.nome,tb_anagrafica.cognome, tb_modulo.titolo as tit2 FROM ".$events_table.",tb_progetto,tb_corso,tb_modulo,tb_anagrafica where tb_modulo.id_modulo = ".$events_table.".id_modulo and tb_modulo.id_corso = tb_corso.id_corso and tb_corso.id_progetto = tb_progetto.id_progetto and 
   ".$events_table.".id_progetto = tb_progetto.id_progetto and ".$events_table.".id_corso = tb_corso.id_corso and tb_anagrafica.id_anagrafica = ".$events_table.".id_docente";
 	  $stmt = $mysqli->prepare($sql); 
@@ -156,11 +131,6 @@ $result = $stmt->get_result(); // get the mysqli result
    {
                $thisid = $rs['id'];
                $datestamp = $rs['datestamp'];
-               /*if($date_standard == 0)
-                  $date = strftime("%Y-%m-%d",$datestamp);
-               else if($date_standard == 1)
-                  $date = strftime("%m/%d/%Y",$datestamp);
-               */
                $stimestamp = $rs['stimestamp'];
                if($time_standard == 0)
                   $stime = strftime("%H:%M",$stimestamp);
@@ -218,8 +188,7 @@ $result = $stmt->get_result(); // get the mysqli result
 			?>
 			</ul>
 			<?php
-      }// end if(mysql_num_rows($result2)>0)
-         /* END DAY EVENTS CHUNK */
+      }
       else
       {?>
         <td bgcolor=<?php if($todaystamp == $daystamp)echo $curcellbg; else echo $cellbg;?> height="<?php echo $rowht2?>" width="14%" class="dayno">&nbsp;<?php echo $d?><BR>

@@ -13,16 +13,10 @@ document.getElementById('tipooperazione').value=valore;
 		$progetto= new Progetto();								  
         $progetto->getDettaglioProgetto($mysqli,$_GET["id_progetto"]);
 		
-		if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
 		while ($row=$progetto->progettoDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Progetto ID <?php echo $row["id_progetto"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Progetto</h1>
                    		
 							<form class="user" action="business/insertprog.php" method="post"  onSubmit="return validate(this);">
                                 <div class="row">

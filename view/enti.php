@@ -1,6 +1,7 @@
 
                 <div class="container-fluid">
-
+                <link rel="stylesheet" href="./vendor/datatables/jquery.dataTables.min.css">
+                <script src="./vendor/datatables/jquery.dataTables.min.js"></script>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Enti</h1>
                     <!-- DataTales Example -->
@@ -52,23 +53,21 @@
  $(" .dettaglio-enti").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
-
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_EnteFinanziante.php?id_entefinanziante="+id);
   });
-  </script> 
-  
-     <script>
+
  $(" .dettaglio-enti2").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_EnteFinanziante_progetto.php?id_entefinanziante="+id);
   });
+
+  $(document).ready(function() {
+  $('.table').DataTable();
+});
+
+
+
   </script> 
   

@@ -8,9 +8,6 @@ $nome=$_POST["Nome"];
 $indirizzo=$_POST["Indirizzo"];
 $capienza=$_POST["Capienza"];
 
-/*$timestamp = strtotime($_POST["INIZIOGENERALE"]);
-date("Y-m-d H:i:s", $timestamp);
-*/
 if ($_POST["DisponibilitaDa"] != "")
 {
 	 $datainizio = str_replace('/', '-', $_POST["DisponibilitaDa"]);

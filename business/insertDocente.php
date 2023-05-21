@@ -2,21 +2,13 @@
 try{
 
 require_once('../functions/functions.php');
+require_once('../class/docente.php');
+require_once('../configurazione/database.php');
 ini_session_start();
 
 $note=$_POST["descrizione"];
 $idanagr=$_POST["anagrid"];
-
-
-
-/*$timestamp = strtotime($_POST["INIZIOGENERALE"]);
-date("Y-m-d H:i:s", $timestamp);
-*/
-
-
-require_once('../class/docente.php');
-require_once('../configurazione/database.php');
-		$docente= new docente();
+$docente= new docente();
 		
 		
 if ($_POST["tipooperazione"]=="adddocente")		

@@ -1,5 +1,6 @@
                 <div class="container-fluid">
-
+                <link rel="stylesheet" href="./vendor/datatables/jquery.dataTables.min.css">
+                <script src="./vendor/datatables/jquery.dataTables.min.js"></script>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Aule</h1>
                     <!--<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
@@ -57,10 +58,11 @@
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_aula.php?id_aula="+id);
   });
+
+  $(document).ready(function() {
+  $('.table').DataTable();
+});
   </script> 
         

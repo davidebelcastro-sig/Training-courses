@@ -12,21 +12,6 @@
                                         <label style="width:20%;">Note</label><input type="text" class="" id="descrizione" name="descrizione" style="width:80%;" value=""> </input>                                    
                                     </div>
 								</div>
-					<!--		
-                                   <label style="width:20%;">Descrizione</label><select name = "moduloid" id= "moduloid" style="width:80%;" required><option value="">Seleziona Modulo</option>
-		<?php /*
-		require_once('../class/modulo.php');
-		require_once('../configurazione/database.php');
-		$elencoModuli = new modulo();								  
-        $elencoModuli->getModuli($mysqli);
-		while ($row=$elencoModuli->moduli->fetch_assoc()) {
-			
-		echo "<option value=".$row['id_modulo'].">".$row['modulo']."</option>";
- 		}*/
-		?> 
-</select>
-</div>
-</div> -->
 								<div class="row">
                                     <div class="col-sm-12">
                                         <label style="width:20%;">Anagrafica*</label><select id="anagrid" name="anagrid" style="width:80%;" required><option value="">Seleziona Anagrafica</option>
@@ -42,18 +27,7 @@
 		?> 
 </select>
 </div>
-</div>
-								
-						  <div class="row">
-									<div class="col-sm-12">	
-                                        <label style="width:20%;">Azienda</label><input type="text" class="" id="AZIENDA" name="AZIENDA" style="width:80%;" value=""> </input>                                    
-                                    </div>
-								</div>
-								<div class="row">
-									<div class="col-sm-12">	
-                                        <label style="width:20%;">Ccnl</label><input type="text" class="" id="CCNL" name="CCNL" style="width:80%;" value=""> </input>                                    
-                                    </div>
-								</div>
+</div>	
 		  <hr>		
 						<div class="row">
                      <div class="col-sm-6" style="text-align:right;">

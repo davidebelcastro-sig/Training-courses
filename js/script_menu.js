@@ -39,19 +39,6 @@ $("#menu_agenda").on("click",function(){
         $("#content").load("agenda/index.php");
 	  
 });
-$("#menu_mod_app").on("click",function(){
-        $("#content").load("view/modAppuntamento.php");
-		// $("#content").load("insert_job/calendario/index.php");
-});
-$("#menu_ins_app").on("click",function(){
-        $("#content").load("view/insAppuntamento.php");
-});
-$("#menu_del_app").on("click",function(){
-        $("#content").load("view/delAppuntamento.php");
-});
-$("#menu_impostazioni").on("click",function(){
-        $("#content").load("view/impostazioni.php");
-});
 
 $("#menu_reg").on("click",function(){
         $("#content").load("agenda/registro_doc.php");

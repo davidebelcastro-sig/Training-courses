@@ -43,7 +43,7 @@ ini_session_start();
                     <div class="row">
                             <div class="col-sm-6">
                             <label style="width:20%;">Password*</label>
-                                <input type="text" class="" id="password" name="password" style="width:79%;" value="" required ></input>
+                                <input type="password" class="" id="password" name="password" style="width:79%;" value="" required ></input>
                             </div>
                     </div>	
                 

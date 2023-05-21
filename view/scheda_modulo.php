@@ -7,19 +7,10 @@
 		require_once('../configurazione/database.php');
 		$modulocls= new modulo();								  
         $modulocls->getDettaglioModulo($mysqli,$_GET["id_modulo"]);
-		
-				if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
-		
-		
 		while ($row=$modulocls->moduloDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Modulo ID <?php echo $row["id_modulo"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Modulo</h1>
 					<form class="user" action="business/insertModulo.php" method="post"  onSubmit="return validate(this);">                   		
 
 							<div class="row">

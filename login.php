@@ -7,21 +7,11 @@
 <body>
     <div> 
 	<center>	
-    <img class="img-responsive" src="img/corsi_home.jpg" alt="CORSI FORMAZIONE" /><h1>CORSI DI FORMAZIONE</h1>
+    <img src="img/corsi_home.jpg" alt="CORSI FORMAZIONE" /><h1>CORSI DI FORMAZIONE</h1>
     </center>
         <form action="business/login_check.php" method="post" id="frmLogin" onSubmit="return validate();">
             <div class="demo-table">
-
-               
                 <div class="form-head">Login</div>
-                <?php 
-                if(isset($_SESSION["errorMessage"])) {
-                ?>
-                <div class="error-message"><?php  echo $_SESSION["errorMessage"]; ?></div>
-                <?php 
-                unset($_SESSION["errorMessage"]);
-                } 
-                ?>
                 <div class="field-column">
                     <div>
                         <label for="username">Username</label><span id="user_info" class="error-info"></span>
@@ -74,7 +64,6 @@
     }
 
 
-	   // Selezione form e definizione dei metodi di validazione
   
 		</script>
 	</html>

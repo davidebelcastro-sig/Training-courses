@@ -9,19 +9,10 @@
 		require_once('../class/anagrafica.php');
 		$docente= new docente();								  
         $docente->getDettaglioDocente($mysqli,$_GET["id_docente"]);
-		
-		
-				if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
-		
 		while ($row=$docente->docenteDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Docente ID <?php echo $row["id_anagrafica"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Docente</h1>
 					<form class="user" action="business/insertDocente.php" method="post"  onSubmit="return validate(this);">       
 							<div class="row">
 									<div class="col-sm-12">	

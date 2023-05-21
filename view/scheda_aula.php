@@ -7,18 +7,10 @@
 		require_once('../configurazione/database.php');
 		$aula= new aula();								  
         $aula->getDettaglioAula($mysqli,$_GET["id_aula"]);
-		
-				if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
-		
 		while ($row=$aula->aulaDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Aula ID <?php echo $row["id_aula"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Aula</h1>
                    		
 							<form class="user" action="business/insertAula.php" method="post"  onSubmit="return validate(this);">
                                 <div class="row">

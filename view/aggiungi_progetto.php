@@ -63,6 +63,7 @@
                         <input type="submit" class="btn btn-success btn-icon-split" name="addproject" onclick="Clicked(this);" value="Aggiungi"></span>
                     </div>
 					<input type="hidden" class="" id="tipooperazione" name="tipooperazione" value="addproject" style="width:80%;">
+
 					                     <div class="col-sm-6" style="text-align:left;">
 					
                         <input type="reset" class="btn btn-danger btn-icon-split" name="resproject" value="Annulla"></span>

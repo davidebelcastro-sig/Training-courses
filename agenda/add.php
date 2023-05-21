@@ -140,17 +140,9 @@ Ora fine: <input type="text" size="5" name="etstring"required>
 
 
 $sql = "SELECT id_progetto,`nomeprogetto` FROM tb_progetto ORDER by `nomeprogetto`";
-
-   $stmt = $mysqli->prepare($sql); 
-	  
-	  $stmt->execute();
-
-
-
+$stmt = $mysqli->prepare($sql); 	  
+$stmt->execute();
 $result = $stmt->get_result(); // get the mysqli result
-
- 
-
 ?>
 
 <select  id = "progetto" name="progetto" required>

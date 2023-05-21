@@ -86,57 +86,15 @@
 		
 	});
 	
-	</script>
-	
-	
-	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-</script>
-		
-		<script>
 	function Clicked(button)
 {
   document.getElementById("tipooperazione").value = button.name;
 }
     function validate() {
-      /*  var $valid = true;
-        document.getElementById("user_info").innerHTML = "";
-        document.getElementById("password_info").innerHTML = "";
-        
-        var userName = document.getElementById("user_name").value;
-        var password = document.getElementById("password").value;
-        if(userName == "") 
-        {
-            document.getElementById("user_info").innerHTML = "required";
-        	$valid = false;
-        }
-        if(password == "") 
-        {
-        	document.getElementById("password_info").innerHTML = "required";
-            $valid = false;
-        }*/
+
         return $valid;
     }
-
-
-	   // Selezione form e definizione dei metodi di validazione
   
-		</script>			
+</script>			
 
 

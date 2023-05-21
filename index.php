@@ -92,7 +92,7 @@
 								<div class="col-lg-6 mb-4">
                                     <div class="card bg-warning text-white shadow">
                                         <div class="card-body">
-                                            Completato tra il 41& e il 70%
+                                            Completato tra il 41% e il 70%
                                             <div class="text-white-50 small"></div>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
-                                            Completato tra il 71& e il 99%
+                                            Completato tra il 71% e il 99%
                                             <div class="text-white-50 small"></div>
                                         </div>
                                     </div>
@@ -108,7 +108,7 @@
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-success text-white shadow">
                                         <div class="card-body">
-                                            Completato al 100&
+                                            Completato al 100%
                                             <div class="text-white-50 small"></div>
                                         </div>
                                     </div>
@@ -179,7 +179,7 @@
                         <span aria-hidden="true"></span>
                     </button>
                 </div>
-                <div class="modal-body">Seleziona "Logout" se tu vuoi uscire dalla corrente session.</div>
+                <div class="modal-body">Seleziona "Logout" se tu vuoi uscire dalla corrente sessione.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="logout.php">Logout</a>
@@ -191,10 +191,8 @@
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 

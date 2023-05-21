@@ -13,9 +13,6 @@ try{
 	{
 		$docMod->deleteDocente($mysqli,$doc,$mod);	
 	}
-	if ($_POST["tipooperazione"]=="resmodulo")
-	{//$allievo->updateAllievo($mysqli,$idazienda,$id_ccnl,$note,$_SESSION['user_id'],$idallievo);	
-	}
 
 header('Location: ../index.php');
 }

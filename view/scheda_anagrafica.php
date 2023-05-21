@@ -7,18 +7,11 @@
 		require_once('../class/anagrafica.php');
 		$anagrafica= new anagrafica();								  
         $anagrafica->getDettaglioAnagrafica($mysqli,$_GET["id_anagrafica"]);
-		
-		if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
 		while ($row=$anagrafica->anagraficaDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
 		  
-                    <h1 class="h3 mb-2 text-gray-800">Anagrafica ID <?php echo $row["id_anagrafica"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Anagrafica</h1>
                    		
 							<form class="user" action="business/insertAnagrafica.php" method="post"  onSubmit="return validate(this);" enctype="multipart/form-data">
                                 <div class="row">

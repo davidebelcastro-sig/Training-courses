@@ -7,22 +7,13 @@
 		require_once('../configurazione/database.php');
 		$entefinanziante= new Entefinanziante();								  
         $entefinanziante->getDettaglioEnte($mysqli,$_GET["id_entefinanziante"]);
-		
-		
-				if(isset($_GET["IDNOT"]))
-		{
-			require_once('../class/notifica.php');
-			$notifica= new notifica();								  
-        $notifica->deleteNotifica($mysqli,$_GET["IDNOT"]);
-		}
-		
 		while ($row=$entefinanziante->enteDett->fetch_assoc()) {
 		?>
 		  <!-- Page Heading -->
 		  
 	
 
-                    <h1 class="h3 mb-2 text-gray-800">Ente ID <?php echo $row["id_entefinanziante"]?></h1>
+                    <h1 class="h3 mb-2 text-gray-800">Scheda Ente</h1>
                    		
 							<form class="user" action="business/insertEnte.php" method="post"  onSubmit="return validate(this);">
 								

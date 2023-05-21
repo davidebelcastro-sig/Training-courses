@@ -20,9 +20,6 @@ $localstring = $todaystring." ".$TZONE;
 //print "today = $localstring<BR>";
 //$todaystamp = strtotime($todaystring);
 $todaystamp = strtotime($localstring);
-//$test = strftime("%Y-%m-%d %H:%M",$todaystamp);
-//print "todaystamp = $todaystamp<BR>";
-//print "test = $test<BR>";
 if(!isset($_GET['noinc']))
 {
  $timestamp = $todaystamp;
@@ -215,11 +212,7 @@ $result = $stmt->get_result(); // get the mysqli result
 				</a></li></span>
 				<?php 
 			}
-		
-		
-       
-        
-		
+			
    }
             } // end while
 			?>

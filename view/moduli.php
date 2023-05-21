@@ -1,6 +1,7 @@
 
                 <div class="container-fluid">
-
+                <link rel="stylesheet" href="./vendor/datatables/jquery.dataTables.min.css">
+                <script src="./vendor/datatables/jquery.dataTables.min.js"></script>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Moduli didattici</h1>
                                   <!-- DataTales Example -->
@@ -103,35 +104,25 @@
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_modulo.php?id_modulo="+id);
   });
-  </script> 
-  
-  
-    <script>
+
  $(" .dettaglio-allievi1").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_modulo_allievi.php?id_modulo="+id);
   });
-  </script> 
-  
-  
-    <script>
+
  $(" .dettaglio-allievi2").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_modulo_docenti.php?id_modulo="+id);
   });
+
+  $(document).ready(function() {
+  $('.table').DataTable();
+});
+
   </script> 

@@ -76,7 +76,6 @@ $mysqli->select_db("ltw");
 } 
 
 
-//questa funzione restituisce i docenti per modulo di un corso passato in input??
 function getDocentiPerModulo($mysqli,$idcorso)
 {
 $mysqli->select_db("ltw");
@@ -91,7 +90,7 @@ $mysqli->select_db("ltw");
    }
 } 
 
-/* da fare */
+
 function getDettaglioDocente($mysqli,$idente)
 {
 $mysqli->select_db("ltw");

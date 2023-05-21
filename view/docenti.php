@@ -1,6 +1,7 @@
 
                 <div class="container-fluid">
-
+                <link rel="stylesheet" href="./vendor/datatables/jquery.dataTables.min.css">
+                <script src="./vendor/datatables/jquery.dataTables.min.js"></script>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Docenti</h1>
                                   <!-- DataTales Example -->
@@ -77,46 +78,33 @@
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
-   //$("#content").load("view/add_docenti_progetti.php?id_docente="+id);  E' UNA PROVA!!!
  $("#content").load("view/scheda_docente.php?id_docente="+id);
   });
-  </script> 
-  
-    <script>
+
  $(" .dettaglio-docenti1").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_docente_moduli.php?id_docente="+id);
   });
-  </script> 
-  
-    <script>
+
  $(" .dettaglio-docenti2").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_docente_corsi.php?id_docente="+id);
   });
-  </script> 
-  
-    <script>
+
  $(" .dettaglio-docenti3").on("click",function(){
 	var select = $(this);
     var id = select.attr('id');
 
- // var value=$(id).text();
- // alert(id);
-  //alert(value);
  $("#content").load("view/scheda_docente_progetti.php?id_docente="+id);
   });
+
+  $(document).ready(function() {
+  $('.table').DataTable();
+});
+
+
   </script> 

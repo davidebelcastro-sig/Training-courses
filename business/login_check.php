@@ -31,10 +31,4 @@ else {
 	}
 
 
-/*if (isset($_SESSION['session_id'])) {
-    header('Location: dashboard.php');
-    exit;
-}
-*/
-
    ?>

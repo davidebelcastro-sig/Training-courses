@@ -24,8 +24,8 @@ $mysqli->select_db("ltw");
 {
 $mysqli->select_db("ltw");
 
-   if ($stmt = $mysqli->prepare("select distinct  tb_entefinanziante.* from tb_entefinanziante,`tb_progetto-ente` 
-   where `tb_progetto-ente`.id_ente = tb_entefinanziante.id_entefinanziante and `tb_progetto-ente`.id_progetto=?")){ 
+   if ($stmt = $mysqli->prepare("select distinct  tb_entefinanziante.* from tb_entefinanziante,tb_progetto
+   where tb_progetto.id_entefinanziante = tb_entefinanziante.id_entefinanziante and tb_progetto.id_progetto=?")){ 
      $stmt->bind_param("i",$prog);
 	 $stmt->execute(); // esegue la query appena creata.
       $result = $stmt->get_result();
@@ -127,34 +127,5 @@ catch(Exception $e) {
 }
 }	
 
-function impostaDashboard($mysqli,$idente)
-{ 
-try
-{
-	$stmt = $mysqli->prepare("UPDATE tb_entefinanziante set dashboard=0");
- if ($stmt === false)
-	die('prepare() failed: ' . htmlspecialchars($mysqli->error));	
-$rc = $stmt->execute();
-if ($rc === false)
-	die('execute() failed: ' . htmlspecialchars($stmt->error));
-
-foreach ($idente as $prog)
-{
-$stmt = $mysqli->prepare("UPDATE tb_entefinanziante set dashboard=1 where id_entefinanziante =?");
- if ($stmt === false)
-	die('prepare() failed: ' . htmlspecialchars($mysqli->error));	
-$rc = $stmt->bind_param("i",$prog);
-if ($rc === false)
-	die('bind_param() failed: ' . htmlspecialchars($stmt->error));
-$rc = $stmt->execute();
-if ($rc === false)
-	die('execute() failed: ' . htmlspecialchars($stmt->error));
-}
-}
-catch(Exception $e) {
-    //echo 'Message: ' .$e->getMessage();
-	echo "error";	
-}
-}
 }
 ?>
