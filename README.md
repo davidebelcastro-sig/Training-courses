@@ -10,4 +10,4 @@ REQUIREMENTS:
 
 TO RUN:
   insert in the browser: localhost/Training-courses/login.php
->>>>>>> b945047dfadf70ffebbfcc5976ce92b06c841caa
+
